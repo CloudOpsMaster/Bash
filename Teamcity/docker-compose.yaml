@@ -1,0 +1,55 @@
+version: '2'
+
+services:
+ postgres:
+  image: postgres:latest
+  volumes:
+   - /srv/postgresql/data:/var/lib/postgresql/data
+  environment:
+   - POSTGRES_PASSWORD=<your-password>
+   - POSTGRES_USER=teamcity
+   - POSTGRES_DB=teamcity
+  ports:
+   - "5432:5432"
+                                                                                
+ teamcity:
+  restart: unless-stopped
+  image: jetbrains/teamcity-server:latest
+  volumes:
+    - /srv/teamcity/data:/data/teamcity_server/datadir
+    - /srv/teamcity/logs:/opt/teamcity/logs
+  ports:
+   - "8080:8111"
+
+ teamcity_agent1:
+  restart: unless-stopped
+  image: lunarfrog/teamcity-agent-dotnet:latest
+  links:
+   - teamcity:teamcity
+  volumes:
+   - /srv/teamcity/agents/001/conf:/data/teamcity_agent/conf
+  environment:
+   - SERVER_URL=teamcity:8111
+   - AGENT_NAME="tcagent_docker_v1_001"
+
+ teamcity_agent2:
+  restart: unless-stopped
+  image: lunarfrog/teamcity-agent-dotnet:latest
+  links:
+   - teamcity:teamcity
+  volumes:
+   - /srv/teamcity/agents/002/conf:/data/teamcity_agent/conf
+  environment:
+   - SERVER_URL=teamcity:8111
+   - AGENT_NAME="tcagent_docker_v1_002"
+
+ teamcity_agent3:
+  restart: unless-stopped
+  image: lunarfrog/teamcity-agent-dotnet:latest
+  links:
+   - teamcity:teamcity
+  volumes:
+   - /srv/teamcity/agents/003/conf:/data/teamcity_agent/conf
+  environment:
+   - SERVER_URL=teamcity:8111
+   - AGENT_NAME="tcagent_docker_v1_003"
