@@ -1,4 +1,4 @@
-    Installing Docker
+    Installing Docker  https://lunarfrog.com/blog/configuring-teamcity-docker-linux-dotnetcore-builds
 If you are starting from a clean system, you will need to install Docker and Docker Compose first. 
 The detailed instructions on installing Docker for Ubuntu are available at
      https://docs.docker.com/engine/installation/linux/ubuntu/ and to install Docker Compose use apt-get:
