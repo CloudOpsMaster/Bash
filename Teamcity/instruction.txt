@@ -22,3 +22,18 @@ Create a     docker-compose.yaml    file   in the
                  -- /srv/docker folder and paste the following content
 
   -->  docker-compose up -d   <--
+  
+  TeamCity first start
+  
+  Now you need to connect TeamCity with the running instance of PostgreSQL. But before, you need JDBC drivers – they are not shipped with TeamCity. In terminal, open /srv/teamcity/data/lib/jdbc and put downloaded drivers here, for example by executing
+
+-->   sudo wget https://jdbc.postgresql.org/download/postgresql-42.1.1.jar   <--
+
+
+
+The plugin can be downloaded at plugins.jetbrains.com and can be installed via TeamCity UI – just open Administration\Plugins List page and upload the plugin. To enable the plugin, TeamCity requires restart and, unfortunately, there is no way to do it from the UI, so you need to use console again, go to /srv/docker and do
+
+-->   docker-compose stop   <--
+-->   docker-compose up -d   <--
+
+After that, the plugin is installed and the agents are capable to use it (see the agent’s properties)
