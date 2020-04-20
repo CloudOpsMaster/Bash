@@ -1,23 +1,24 @@
-Installing Docker
+    Installing Docker
 If you are starting from a clean system, you will need to install Docker and Docker Compose first. 
 The detailed instructions on installing Docker for Ubuntu are available at
- https://docs.docker.com/engine/installation/linux/ubuntu/ and to install Docker Compose use apt-get:
+     https://docs.docker.com/engine/installation/linux/ubuntu/ and to install Docker Compose use apt-get:
 
---> sudo apt-get install docker-compose <--
+      --> sudo apt-get install docker-compose <--
+      
 Folder structure
-I use /srv folder as a root folder for all the data related to TeamCity builds and here is the 
-full hierarchy of folders you will need to create inside of /srv:
-
-
-/srv/docker is used to store docker-compose.yaml file (see below for more details)
-/srv/postgresql/data is used to persist the PostgreSQL database
-/srv/teamcity/agents/00X/conf contains the corresponding agent’s configuration
-/srv/teamcity/data is mounted to the TeamCity container to provide a persistent storage for the database drivers,
+I use  /srv folder as a root folder for all the data related to TeamCity builds and here is the 
+full hierarchy of folders you will need to create inside of 
+       /srv:
+/srv/docker       -   is used to store docker-compose.yaml file (see below for more details)
+/srv/postgresql/data    -  is used to persist the PostgreSQL database
+/srv/teamcity/agents/00X/conf    -  contains the corresponding agent’s configuration
+/srv/teamcity/data    -  is mounted to the TeamCity container to provide a persistent storage for the database drivers,
  plugins, etc.
-/srv/teamcity/logs contains TeamCity’s logs
+/srv/teamcity/logs   -   contains TeamCity’s logs
 When the folders are created, we are ready to define the stack.
 
 Docker containers
-Create a docker-compose.yaml file in the /srv/docker folder and paste the following content
+Create a     docker-compose.yaml    file   in the 
+                 -- /srv/docker folder and paste the following content
 
   -->  docker-compose up -d   <--
