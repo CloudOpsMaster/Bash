@@ -1,0 +1,8 @@
+#Syntax highlight CentOS
+cp /usr/share/mc/syntax/sh.syntax /usr/share/mc/syntax/unknown.syntax
+
+# Auto update cent OS
+yum install yum-cron
+
+# Cent OS 8 Auto update
+yum install dnf-automatic
