@@ -13,3 +13,11 @@ docker ps
 docker run -p 8080:80 username/projectname
 docker build -t username/projectname .
 docker stop c1248..........
+
+
+# Ubuntu
+apt apdate
+apt install docker.io
+docker --version
+docker run -p 8080:80 username/projectname
+
