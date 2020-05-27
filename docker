@@ -1,0 +1,15 @@
+# Docker bash
+
+git clone https://github.com/
+docker build -t projectname .
+docker tag <container-id> username/projectname
+docker login (successful)
+docker push username/projectname
+
+# useful
+
+docker image
+docker ps
+docker run -p 8080:80 username/projectname
+docker build -t username/projectname .
+docker stop c1248..........
