@@ -1,3 +1,8 @@
 # dotNet ef Core 3.0
 dotnet tool install -g dotnet-ef --version 3.0.0
-dotnet ef database update
+
+
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0
+dotnet ef migrations add someModel
