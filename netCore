@@ -1,2 +1,2 @@
 # dotNet ef Core 3.0
-dotnet tool install -g dotnet-ef --version 3.0.0-preview4.19216.3
+dotnet tool install -g dotnet-ef --version 3.0.0
