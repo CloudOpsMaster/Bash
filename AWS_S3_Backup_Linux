@@ -1,0 +1,37 @@
+Now SSH into the Linux Server – Install the following,
+# wget https://s3.amazonaws.com/aws-cli/awscli-bundle.zip
+# unzip awscli-bundle.zip
+# aws configure
+This will prompt to give some details,
+Give the User access key and Secret access key and Enter.
+
+Try this command to list the contents in the bucket,
+# aws s3 ls
+Now create the backup script which will run as per your requirement with the help of crontab.
+
+#!/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+export DISPLAY=:0.0
+FILE_NAME="filename-`date +%Y%m%d%H%M`.tar.gz"
+SAVE_DIR="/backupsourcepath"
+S3BUCKET="bucketname"
+tar -zcf ${SAVE_DIR}/${FILE_NAME}  -C / srv/
+if [ -e ${SAVE_DIR}/${FILE_NAME} ]; then
+aws s3 cp ${SAVE_DIR}/${FILE_NAME} s3://${S3BUCKET} /${FILE_NAME} --quiet
+if [ "$?" -ne "0" ]; then
+        echo "Upload Failed"
+        exit 1
+fi
+rm ${SAVE_DIR}/${FILE_NAME}
+exit 0
+fi
+echo "backup not generated"
+exit
+Save the script with filename.sh extension.
+Then add to crontab.
+
+07 00 * * MON-FRI /usr/bin/env bash /home/backupscript.sh &>> /home/logpath/backup.log
+The above crontab will run MON-FRI at 7:00AM.
+
+Verify the backup is running successfully. 
+Try this command, to list your bucket - # aws s3 ls
