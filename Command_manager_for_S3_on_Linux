@@ -1,0 +1,32 @@
+Install
+Download file to /usr/local/src directory
+
+cd /usr/local/src
+
+curl -O <URL to download>
+
+tar xfz s3cmd-1.6.1.tar.gz
+
+Install python setuptools
+
+yum install python-setuptools
+
+Next install s3cmd
+
+python setup.py install
+
+Configure
+Start command from user which will used in script or will use s3cmd
+
+s3cmd --configure
+
+Fill answers on questions.
+
+Access key and Secret key are your identifiers for Amazon S3. Leave them empty for using the env variables.
+
+Provide password for encrypt files.
+
+Configuration will be saved to '$HOME/.s3cfg'
+
+Checking
+s3cmd ls <s3 URL>
