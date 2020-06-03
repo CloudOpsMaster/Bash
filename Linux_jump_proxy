@@ -1,0 +1,26 @@
+# Install base packages
+yum group install base core -y
+
+
+
+
+# Modify ssh client settings to use configured server as jump server with publikey:
+Host jump somehost.net
+    HostName somehost.net
+    User vasiapetrov@CORP.somehost.NET
+    IdentityFile ~/.ssh/vasiapetrov
+    ControlMaster auto
+    ControlPath ~/.ssh/sockets/%u@%h:%p
+    ControlPersist 10m
+
+Host !jump !somehost.net.net *
+    ProxyJump jump
+
+
+#To get initial ticket granting ticket on Linux for GSSAPI auth execute on client:
+kinit adusername@CORP.somehost.NET
+
+
+# On Windows machines that are not part of NC domain use command for GSSAPI auth
+
+runas /netonly /user:adusername@somehost.NET "putty -ssh 03.corp.somehost.net"
