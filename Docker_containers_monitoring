@@ -1,0 +1,21 @@
+Zabbix version 3.2
+Python 2.7.5
+
+Source: https://github.com/rpsedlak/zabbix-docker
+
+For monitoring Docker containers you have to do the following:
+Run package.sh to create the ZabbixDocker.tar.gz file.
+
+Copy the ZabbixDocker.tar.gz file to necessary servers.
+On the server: tar zxvf ZabbixDocker.tar.gz. It is recommended that this is done in it's own directory.
+Run install.sh. Please note that this assumes that the Zabbix agent files are located at /etc/zabbix/zabbix_agentd.d/. 
+If this is not the case as in an Ubuntu installation then please add the directory as a parameter to install.sh.
+Restart the zabbix-agent process.
+Import the ZabbixDockerTemplate.xml file into Zabbix using the GUI. You can do this from your local computer.
+
+Files description:
+userparameter_zabbixdocker.conf - Client-side agent parameter definition
+ZabbixDockerTemplate.xml - File to be imported into Zabbix UI for "Template App Docker" template
+zabbix-docker-discover.py - Python script to provide docker instance discovery.
+zabbix-docker-stats.py - Python helper script to provide information from 'docker stats'
+zabbix-docker-convert.py - Python helper script to convert byte calculations (i.e. GB -> B)
