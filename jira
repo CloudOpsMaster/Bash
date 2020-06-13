@@ -18,3 +18,12 @@ ls
  wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-8.0.2-x64.bin
  sudo chmod a+x atlassian-jira-software-8.0.2-x64.bin
  sudo ./atlassian-jira-software-8.0.2-x64.bin
+ 
+ 
+ # Google Cloud 
+ 
+ wget https://product-downloads.atlassian.com/software/jira/downloads/atlassian-jira-software-8.5.5-x64.bin
+ ls
+ sudo sh ./atlassian-jira-software-8.5.5-x64.bin
+ # Network interface details ->  Firewall -> 
+ # create new -> name - jira;  target - all inntances in the network; service filter - service acount; tcp - 8080
