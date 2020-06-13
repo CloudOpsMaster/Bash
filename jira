@@ -1,1 +1,20 @@
+# Start with docker
+sudo apt update
+sudo apt remove docker docker-engine docker.io
+sudo apt install docker.io
+sudo service docker start
+sudo docker pull atlassian/jira-software
+sudo docker images
+sudo docker ps -a
+sudo docker run --detach --publish 8080:8080 atlassian/jira-software
 
+
+# Jira
+free -h
+mkdir resource
+ls
+ cd resource/
+ ls
+ wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-8.0.2-x64.bin
+ sudo chmod a+x atlassian-jira-software-8.0.2-x64.bin
+ sudo ./atlassian-jira-software-8.0.2-x64.bin
