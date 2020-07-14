@@ -1,1 +1,8 @@
 # ansible
+
+
+# for Windows 
+- Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+- sudo apt-add-repository ppa:ansible/ansible
+- sudo apt-get install ansible
+- ansible --version
