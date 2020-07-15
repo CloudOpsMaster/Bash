@@ -1,1 +1,7 @@
 #
+cd ~
+pwd
+mkdir .ssh
+cd .ssh/
+vi authorized_keys
+# and put open key
