@@ -1,7 +1,9 @@
 #
 cd ~
 pwd
+chmod 700 .ssh
 mkdir .ssh
 cd .ssh/
 vi authorized_keys
 # and put open key
+chmod 600 .ssh/authorized_keys
