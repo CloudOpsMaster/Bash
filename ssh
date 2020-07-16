@@ -1,0 +1,3 @@
+service ssh status
+service ssh start
+sudo apt install openssh-server
