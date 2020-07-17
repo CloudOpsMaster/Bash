@@ -6,3 +6,9 @@
 - sudo apt-add-repository ppa:ansible/ansible
 - sudo apt-get install ansible
 - ansible --version
+
+
+#use python
+sudo apt update
+sudo apt install python3-pip
+sudo pip3 install ansible
