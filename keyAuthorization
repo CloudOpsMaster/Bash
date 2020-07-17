@@ -7,3 +7,10 @@ cd .ssh/
 vi authorized_keys
 # and put open key
 chmod 600 .ssh/authorized_keys
+
+
+ssh-keygen -t rsa
+#Enter file in which to save the key (/home/user/.ssh/id_rsa):
+#Enter passphrase (empty for no passphrase): "Enter password"
+
+cat ~/.ssh/id_rsa.pub
