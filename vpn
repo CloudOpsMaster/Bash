@@ -1,1 +1,5 @@
 
+cat /etc/lsb-release
+lscpu
+sudo apt update
+sudo apt upgrade
