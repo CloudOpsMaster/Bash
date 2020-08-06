@@ -9,3 +9,27 @@ sudo ufw allow 22
 sudo ufw allow 80
 sudo ufw allow 443
 sudo ufw enable
+wget https://git.io/vpn -O openvpn-install.sh
+less openvpn-install.sh
+bash openvpn-install.sh
+
+
+ublic IPv4 address / hostname [35.238.8.252]: 35.238.8.252
+Which protocol should OpenVPN use?
+   1) UDP (recommended)
+   2) TCP
+Protocol [1]: 2
+What port should OpenVPN listen to?
+Port [1194]: 443
+Select a DNS server for the clients:
+   1) Current system resolvers
+   2) Google
+   3) 1.1.1.1
+   4) OpenDNS
+   5) Quad9
+   6) AdGuard
+DNS server [1]: 4
+Enter a name for the first client:
+Name [client]: 
+OpenVPN installation is ready to begin.
+Press any key to continue...
