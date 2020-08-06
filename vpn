@@ -33,3 +33,16 @@ Enter a name for the first client:
 Name [client]: 
 OpenVPN installation is ready to begin.
 Press any key to continue...
+
+
+Created symlink /etc/systemd/system/multi-user.target.wants/openvpn-iptable
+s.service → /etc/systemd/system/openvpn-iptables.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/openvpn-server@
+server.service → /lib/systemd/system/openvpn-server@.service.
+
+netstat -ant
+sudo apt install net-tools
+netstat -tunap
+sudo vi -M /etc/openvpn/server/server.conf
+# and write "dublicate-cn"
+systemctl restart openvpn-iptables.service
