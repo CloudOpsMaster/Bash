@@ -1,1 +1,3 @@
-#
+# grep
+
+grep -C 5 -e   "FORMAT_ERROR" /var/log/supervisor/FrontInterface.log* 
