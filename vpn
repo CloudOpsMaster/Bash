@@ -46,3 +46,14 @@ netstat -tunap
 sudo vi -M /etc/openvpn/server/server.conf
 # and write "dublicate-cn"
 systemctl restart openvpn-iptables.service
+apt install apache2
+
+nano /etc/apache2/sites-available/000-default.conf
+#add ti file
+AccessFileName .htaccess
+<Directory "/var/www/html">
+Options FollowSymLinks
+AllowOverride All
+Require all granted
+</Directory>
+</VirtualHost>
