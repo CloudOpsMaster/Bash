@@ -57,3 +57,13 @@ AllowOverride All
 Require all granted
 </Directory>
 </VirtualHost>
+
+nano /var/www/html/.htaccess
+# add 
+Redirect 302 /config http://34.72.169.142/client.ovpn
+AddType application/octech-stream .ovpn
+
+apachectl -k restart
+netstat -ant
+
+cp client.ovpn /var/www/html/
