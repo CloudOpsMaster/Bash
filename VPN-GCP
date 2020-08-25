@@ -426,4 +426,5 @@ fi
 # then import to open vpn client
 
 
-
+# Static IP
+# Turn off instance -> network instance -> create ip address -> name: .... -> resurve :)
