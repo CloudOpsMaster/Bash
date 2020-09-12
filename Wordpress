@@ -1,0 +1,42 @@
+sudo apt install apache2 apache2-utils
+sudo systemctl enable apache2
+sudo systemctl start apache2
+sudo mysql_secure_installation
+sudo apt install php7.4 php7.4-mysql libapache2-mod-php7.4 php7.4-cli php7.4-cgi php7.4-gd
+ sudo nano /var/www/html/info.php
+ 
+ <?php
+phpinfo();
+?>
+
+sudo apt-get install apache2
+sudo a2enmod mod_rewrite
+sudo a2enmod rewrite
+
+sudo systemctl restart apache2
+
+wget -c http://wordpress.org/latest.tar.gz
+
+tar -xzvf latest.tar.gz
+
+sudo rsync -av wordpress/* /var/www/html/
+sudo chown -R www-data:www-data /var/www/html/
+sudo chmod -R 755 /var/www/html/
+sudo rm /var/www/html/index.html
+sudo mysql -u root -p
+
+# MySQL
+
+sudo apt install mysql-server
+sudo mysql_secure_installation
+
+#Pass P@ssw0rd12345
+
+sudo mysql -u root -p
+CREATE DATABASE wp_database;
+CREATE USER 'wp_user'@'localhost' INDENTIFIED BY 'password'
+GRANT ALL PRIVILEGES ON wp_database.* TO 'wp_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+
+# Go to your ip address
