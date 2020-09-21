@@ -1,1 +1,33 @@
 
+# VM instance Ubuntu 20.04
+
+sudo top
+sudo -i
+fallocate -l 4G /swapfile
+cd /
+ll
+chmod 600 /swapfile
+ll
+mkswap /swapfile
+swapon /swapfile
+top
+ apt install -y vim
+nano /etc/fstab
+
+" /swapfile none swap sw 0 0 "
+# Reboot vm instance 
+# go to get.docker.com 
+curl https://get.docker.com > install-docker.sh
+chmod 775 install-docker.sh
+./install-docker.sh
+usermod -aG docker root
+docker container ls
+sudo curl -L "https://github.com/docker/compose/releases/download/1.27.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod 755 /usr/local/bin/docker-compose
+docker-compose --version
+git clone https://github.com/chrisbmatthews/wordpress-docker-compose.git
+cd wordpress-docker-compose/
+nano docker-compose.yml
+# port shut be 80 : 80
+docker-compose up -d
+docker container ls
