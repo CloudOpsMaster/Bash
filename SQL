@@ -59,5 +59,6 @@ union
 select name, age from Person3
 order by name
 
-#
+# geting data from multiple tables and using an alias ( usually for two tables )
+select p.id, p.name, e.position from Person as p, Emploee as e where p.id = e.id
 
