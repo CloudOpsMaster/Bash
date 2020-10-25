@@ -68,3 +68,8 @@ select p.id, p.name, e.position
      join Emploee as e on p.id = e.id;
 
 
+# If table 1 have column id and table 2 have column id for connect tables use natural join
+select * from Person as p
+natural join Emploee as e;
+
+
