@@ -44,3 +44,9 @@ select * from Person where name LIKE 'V$%';
 select * from Person where age is null;
 select * from Person where age is not null;
 
+# Order by values or ascending or descending
+select * from Person order by age;
+select * from Person order by asc;
+select * from Person order by desc;
+
+
