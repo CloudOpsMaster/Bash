@@ -18,7 +18,6 @@ select avg(age) from Person;
 select min(age) from Person;
 select max(age) from Person;
 
-
 # renaming fields
 select name as m from Person;
 
@@ -31,7 +30,6 @@ select age from Person where age >= 25 and  >= 35;
 
 # where in values
 select * from Person where age in ( 1, 2, 3, 4, 35, 24, 23, 26);
-
 
 # where not in values
 select * from Person where age not in ( 1, 2, 3, 4, 35, 24, 23, 26);
