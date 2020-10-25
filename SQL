@@ -17,3 +17,11 @@ select avg(age) from Person;
 # min or max value
 select min(age) from Person;
 select max(age) from Person;
+
+
+# renaming fields
+select name as m from Person;
+
+# Put field "test"
+select name, 'test' from Person;
+
