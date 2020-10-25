@@ -38,3 +38,6 @@ select * from Person where age not in ( 1, 2, 3, 4, 35, 24, 23, 26);
 
 # where LIKE 
 select * from Person where name LIKE 'Vasia';
+
+# character escaping $
+select * from Person where name LIKE 'V$%';
