@@ -72,4 +72,7 @@ select p.id, p.name, e.position
 select * from Person as p
 natural join Emploee as e;
 
-
+# LEFT JOIN
+SELECT u.id, u.name, d.name AS d_name
+FROM users u
+LEFT JOIN departments d ON u.d_id = d.id;
