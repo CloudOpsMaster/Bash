@@ -41,3 +41,7 @@ select * from Person where name LIKE 'Vasia';
 
 # character escaping $
 select * from Person where name LIKE 'V$%';
+
+# find filds where values is null
+select * from Person where age is null;
+
