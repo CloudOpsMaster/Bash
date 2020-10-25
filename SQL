@@ -4,3 +4,16 @@ SELECT (UNIX_TIMESTAMP(NOW())+60)*1000
 
 # Repeating fields "distinct"
 select distinct name from Person;
+
+# count fields
+select count(age) from Person;
+
+# sum fields 
+select sum(age) from Person;
+
+# average field value
+select avg(age) from Person;
+
+# min or max value
+select min(age) from Person;
+select max(age) from Person;
