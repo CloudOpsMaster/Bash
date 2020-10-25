@@ -51,4 +51,12 @@ select * from Person order by desc;
 select * from Person order by name, age;
 select * from Person order by 2;
 
+# pooling requests UNION ( UNION ALL )
+select name, age as 'number' from Person
+union
+select name, age from Person2
+union
+select name, age from Person3
+order by name
+
 
