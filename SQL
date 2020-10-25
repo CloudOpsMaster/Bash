@@ -25,3 +25,9 @@ select name as m from Person;
 # Put field "test"
 select name, 'test' from Person;
 
+# where between, get values
+select age from Person where age between 25 and 35;
+select age from Person where age >= 25 and  >= 35;
+
+# wherec in values
+select * from Person where age in ( 1, 2, 3, 4, 35, 24, 23, 26);
