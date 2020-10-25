@@ -29,5 +29,9 @@ select name, 'test' from Person;
 select age from Person where age between 25 and 35;
 select age from Person where age >= 25 and  >= 35;
 
-# wherec in values
+# where in values
 select * from Person where age in ( 1, 2, 3, 4, 35, 24, 23, 26);
+
+
+# where not in values
+select * from Person where age not in ( 1, 2, 3, 4, 35, 24, 23, 26);
