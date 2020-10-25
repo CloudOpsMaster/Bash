@@ -48,5 +48,6 @@ select * from Person where age is not null;
 select * from Person order by age;
 select * from Person order by asc;
 select * from Person order by desc;
+select * from Person order by name, age;
 
 
