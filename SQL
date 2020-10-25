@@ -35,3 +35,6 @@ select * from Person where age in ( 1, 2, 3, 4, 35, 24, 23, 26);
 
 # where not in values
 select * from Person where age not in ( 1, 2, 3, 4, 35, 24, 23, 26);
+
+# where LIKE 
+select * from Person where name LIKE 'Vasia';
