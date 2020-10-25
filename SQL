@@ -1,3 +1,6 @@
 
 # UNIX TIME
 SELECT (UNIX_TIMESTAMP(NOW())+60)*1000
+
+# Repeating fields "distinct"
+select distinct name from Person;
