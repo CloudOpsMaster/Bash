@@ -78,5 +78,6 @@ SELECT u.id, u.name, d.name AS d_name
 FROM users u
 LEFT JOIN departments d ON u.d_id = d.id;
 
-# GROUP BY,  GROUP BY some fields "with rollup"
-SELECT * from Person GROUP BY name, age with rollup
+# GROUP BY,  GROUP BY some fields "with rollup", WITH CUBE
+SELECT * from Person GROUP BY name, age with rollup;
+SELECT * from Person GROUP BY name, age with cube;
