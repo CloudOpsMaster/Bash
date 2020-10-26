@@ -1,3 +1,4 @@
+# FROM -> WHERE -> group by -> having -> distinct -> UNION order by
 
 # UNIX TIME
 SELECT (UNIX_TIMESTAMP(NOW())+60)*1000
