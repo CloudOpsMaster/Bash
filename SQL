@@ -108,6 +108,15 @@ SELECT * FROM Person where name = nullif ( name, '0');
 SELECT * FROM Person WHERE (name, age) < ('Maks', 25);
 SELECT * FROM Person WHERE (name, age) < (select name, age from Person where age = 25);
 
-
+# INTERSECT Transact-SQL, который выводит одинаковые строки из первого, второго и последующих наборов данных
+ SELECT tip, summa FROM test_table
+        intersect
+ SELECT tip, summa FROM test_table_two
+ 
+# EXCEPT  Transact-SQL, который выводит только те данные из первого набора строк, которых нет во втором наборе.
+ SELECT tip, summa FROM test_table
+        except
+ SELECT tip, summa FROM test_table_two
+   
 
            
