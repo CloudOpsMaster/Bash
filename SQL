@@ -90,4 +90,13 @@ WHERE EXISTS (SELECT * FROM Orders
                   
 # Casting types (for example, from numeric to string) 
 SELECT cast(name as char), cast(age as char) from Person;
-                  
+ 
+# Using CASE
+SELECT name,
+       case
+           WHEN age > 50 then 'old'
+           WHEN age < 20 then 'young'
+           ELSE 'middle'
+           end
+FROM Person           
+           
