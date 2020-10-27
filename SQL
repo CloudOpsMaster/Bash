@@ -118,5 +118,7 @@ SELECT * FROM Person WHERE (name, age) < (select name, age from Person where age
         except
  SELECT tip, summa FROM test_table_two
    
-
+# INSERT
+INSERT INTO Person (id, name, age) values ( 1, 'Vasia', 34);
+INSERT INTO Person (id, name, age) select id + 1, name, age + 1 from Person where id = 7;
            
