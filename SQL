@@ -102,4 +102,12 @@ FROM Person
 
 
 SELECT * FROM Person where name = case when ( name is null ) then 'no name' else name end;
+# the same 
+SELECT * FROM Person where name = coalesce ( name, 'no Name'); 
+SELECT * FROM Person where name = nullif ( name, '0'); 
+SELECT * FROM Person WHERE (name, age) < ('Maks', 25);
+SELECT * FROM Person WHERE (name, age) < (select name, age from Person where age = 25);
+
+
+
            
