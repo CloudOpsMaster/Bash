@@ -126,3 +126,5 @@ INSERT INTO Person (id, name, age) select id + 1, name, age + 1 from Person wher
 DELETE from Person where id = 7;
 DELETE from Person where id = 7 and name is NULL;
 
+# UPDATE 
+UPDATE Person set age = 34 where id = 33;
