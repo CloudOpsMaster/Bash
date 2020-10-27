@@ -81,3 +81,13 @@ LEFT JOIN departments d ON u.d_id = d.id;
 # GROUP BY,  GROUP BY some fields "with rollup", WITH CUBE
 SELECT * from Person GROUP BY name, age with rollup;
 SELECT * from Person GROUP BY name, age with cube;
+
+# EXISTS. NOT EXIST, ANY, SOME, ALL
+SELECT *
+FROM Customers
+WHERE EXISTS (SELECT * FROM Orders 
+                  WHERE Orders.CustomerId = Customers.Id)
+                  
+# Casting types (for example, from numeric to string) 
+SELECT cast(name as char), cast(age as char) from Person;
+                  
