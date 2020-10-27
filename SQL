@@ -99,4 +99,7 @@ SELECT name,
            ELSE 'middle'
            end
 FROM Person           
+
+
+SELECT * FROM Person where name = case when ( name is null ) then 'no name' else name end;
            
