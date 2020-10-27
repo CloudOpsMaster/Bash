@@ -122,3 +122,7 @@ SELECT * FROM Person WHERE (name, age) < (select name, age from Person where age
 INSERT INTO Person (id, name, age) values ( 1, 'Vasia', 34);
 INSERT INTO Person (id, name, age) select id + 1, name, age + 1 from Person where id = 7;
            
+# DELETE
+DELETE from Person where id = 7;
+DELETE from Person where id = 7 and name is NULL;
+
