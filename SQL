@@ -162,3 +162,37 @@ BEGIN;
     UPDATE products SET name = 'nuts_' WHERE id =  3;
     UPDATE products SET name = 'tomatos_' WHERE id =  6;
 COMMIT;
+
+
+# create/ drop databases
+CREATE schema someName;
+CREATE DATABASE someName;
+DROP DATABASE someName;
+show databases;
+
+# create table
+create table Students(id int, name varchar(50), age int);
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 
+SET @minId=(select min(n.id)-1 from Notifier.notices n where n.createdAt BETWEEN  '2020-01-01 00:00:00' and '2020-01-01 23:59:59');
+SET @maxId=(select max(n.Id)+1 from Notifier.notices n where n.createdAt BETWEEN  '2020-08-27 00:00:00' and '2020-08-27 23:59:59');
+USE Notifier; 
+select p.id, p.externalId, p.type, p.status, p.data, p.email, p.phone, p.queue, p.clientId, p.response, p.createdAt
+from Notifier.notices as p  
+WHERE type = 'SMS'
+WHERE p.id > @minId
+and p.id < @maxId
+and p.type = 'SMS'
+order by p.createdAt desc;
