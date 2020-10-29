@@ -176,9 +176,9 @@ create table if not exist Students(id int, name varchar(50), age int);
 create table 
        if not exist 
                    Students(
-                           id int default 0, 
+                           id int auto increment, 
                            name varchar(50) not null, 
-                           age int
+                           age int default 0
                            );
 
 
