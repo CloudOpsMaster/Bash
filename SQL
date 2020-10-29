@@ -172,14 +172,14 @@ show databases;
 
 # create table
 create table Students(id int, name varchar(50), age int);
-
-
-
-
-
-
-
-
+create table if not exist Students(id int, name varchar(50), age int);
+create table 
+       if not exist 
+                   Students(
+                           id int default 0, 
+                           name varchar(50) not null, 
+                           age int
+                           );
 
 
 
