@@ -157,3 +157,8 @@ BEGIN TRANSACTION
         ROLLBACK
 -- Завершение транзакции
 COMMIT
+
+BEGIN;
+    UPDATE products SET name = 'nuts_' WHERE id =  3;
+    UPDATE products SET name = 'tomatos_' WHERE id =  6;
+COMMIT;
