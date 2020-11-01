@@ -207,6 +207,12 @@ drop table restrict Person3
 # Modify table
 alter table Student modify addres int;
 alter table Student chenge addres addr int;
+alter table Student alter column addr set default 0;
+alter table Student alter column addr drop default 0;
+alter table Student drop addr;
+
+# Index 
+create index ageIndex on Student(age);
 
 # 
 SET @minId=(select min(n.id)-1 from Notifier.notices n where n.createdAt BETWEEN  '2020-01-01 00:00:00' and '2020-01-01 23:59:59');
