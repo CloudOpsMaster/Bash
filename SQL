@@ -204,6 +204,10 @@ create table if not exist studAddress (id int, street varchar(64), number int, s
 drop table cascade Person4
 drop table restrict Person3
 
+# Modify table
+alter table Student modify addres int;
+alter table Student chenge addres addr int;
+
 # 
 SET @minId=(select min(n.id)-1 from Notifier.notices n where n.createdAt BETWEEN  '2020-01-01 00:00:00' and '2020-01-01 23:59:59');
 SET @maxId=(select max(n.Id)+1 from Notifier.notices n where n.createdAt BETWEEN  '2020-08-27 00:00:00' and '2020-08-27 23:59:59');
