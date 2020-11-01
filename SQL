@@ -183,8 +183,11 @@ create table
 # Describe table
 describe Person 
 
-# creating tables based on existing / ( создание таблиц на основе существующих )
+# creating tables based on existing / ( создание таблиц на основе существующих )/ ignore, replace
 create table Person2 as select id, name, age FROM Person
+create table Person3  ignore as select id, name, age FROM Person
+create table Person4 replace as select id, name, age FROM Person
+
 
 
 
