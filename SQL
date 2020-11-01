@@ -188,8 +188,17 @@ create table Person2 as select id, name, age FROM Person
 create table Person3  ignore as select id, name, age FROM Person
 create table Person4 replace as select id, name, age FROM Person
 
+# creating tables with condition /создание таблиц с условием
+create table if not exist Person ( id int, name varchar(64), age int, constraint checkAge check(age > 18));
 
+# Добавление адреса в таблицу studAddress таким образом, чтобы адрес соответсвувал в таблице Student по id
+create table if not exist studAddress (id int, street varchar(64), number int, studId int, foreign key(studId) references Student(id));
 
+# Добавление адреса в таблицу studAddress таким образом, чтобы адрес соответсвувал в таблице Student по id + on delete/update cascade/no action/restrict
+create table if not exist studAddress (id int, street varchar(64), number int, studId int, foreign key(studId) references Student(id) on delete cascade);
+create table if not exist studAddress (id int, street varchar(64), number int, studId int, foreign key(studId) references Student(id) on delete no action);
+create table if not exist studAddress (id int, street varchar(64), number int, studId int, foreign key(studId) references Student(id) on delete restrict);
+create table if not exist studAddress (id int, street varchar(64), number int, studId int, foreign key(studId) references Student(id) on update cascade);
 
 # 
 SET @minId=(select min(n.id)-1 from Notifier.notices n where n.createdAt BETWEEN  '2020-01-01 00:00:00' and '2020-01-01 23:59:59');
