@@ -180,8 +180,11 @@ create table
                            name varchar(50) not null, 
                            age int default 0
                            );
+# Describe table
+describe Person 
 
-
+# creating tables based on existing / ( создание таблиц на основе существующих )
+create table Person2 as select id, name, age FROM Person
 
 
 
