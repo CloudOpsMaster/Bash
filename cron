@@ -1,1 +1,10 @@
 # Cron
+
+crontab -e
+# m  h  dom mon dow command  
+  *  *   *   *   *   echo "Hello world" >> /home/scripts/mylog.log
+
+
+crontab - l    - показать расписание
+crontab -e   - редактировать расписание
+/etc/crontab  - файл расписания на системном уровне
