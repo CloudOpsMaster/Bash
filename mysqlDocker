@@ -1,0 +1,6 @@
+
+docker container run -d --name mysqldb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password mysql:latest
+
+docker exec -it mysqldb bash
+
+mysql -u root -ppassword
