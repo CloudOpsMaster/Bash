@@ -1,3 +1,3 @@
 # for installing bin files
 
-sudo apt-get install libpcre3 libpcre3-dev libpcecpp0 libbss-dev zlib1g-dev
+sudo apt-get install libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev
