@@ -1,0 +1,81 @@
+How To setup Go Web Application Using Nginx on Ubuntu 18.04
+Video Tutorial -https://youtu.be/5PIZjnwo3NM
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Go is an open source programming language developed by a team at Google. It provides easy to build simple, reliable, and efficient software.
+NGINX is a famous open source web server software.               
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Our Server Specification-    
+Os:Ubuntu 18.04 LTS Bionic Beaver 64Bit   |IP address- 192.168.1.50  | Hostname :www.yourdomain.com
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+lsb_release -cd ; hostname ; hostname -I ; whoami ; getconf LONG_BIT ; apt install -y build-essential software-properties-common curl gdebi net-tools wget curl sqlite3 dirmngr nano lsb-release apt-transport-https leafpad git sudo unzip socat bash-completion checkinstall imagemagick openssl
+
+curl -O https://dl.google.com/go/go1.12.1.linux-amd64.tar.gz
+tar -xvf go1.12.1.linux-amd64.tar.gz -C /usr/local
+chown -R root:root /usr/local/go
+mkdir -p $HOME/go/{bin,src}
+nano ~/.profile
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+. ~/.profile
+echo $PATH ; go version
+
+mkdir $GOPATH/go-web ; cd $GOPATH/go-web
+nano main.go
+package main
+
+import (
+    "fmt"
+    "net/http"
+)
+
+func main() {
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(w, "Hello World")
+    })
+
+    http.HandleFunc("/greet/", func(w http.ResponseWriter, r *http.Request) {
+        name := r.URL.Path[len("/greet/"):]
+        fmt.Fprintf(w, "Hello %s\n", name)
+    })
+
+    http.ListenAndServe(":9990", nil)
+}
+
+go build main.go
+nano /lib/systemd/system/goweb.service
+[Unit]
+Description=goweb
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5s
+ExecStart=/root/go/go-web/main
+
+
+[Install]
+WantedBy=multi-user.target
+
+systemctl daemon-reload
+service goweb start ; service goweb status
+
+apt install nginx -y
+nano /etc/nginx/conf.d/yourdomain.conf
+server {
+    listen [::]:80;
+    listen 80;
+    server_name www.yourdomain.com;
+
+    location / {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://127.0.0.1:9990;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_next_upstream error timeout http_502 http_503 http_504;
+    }
+}
+rm /etc/nginx/sites-enabled/default ; nginx -t  ; echo "192.168.1.50 www.yourdomain.com" >> /etc/hosts ; systemctl restart nginx 
+www.yourdomain.com
