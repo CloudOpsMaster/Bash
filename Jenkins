@@ -2,3 +2,41 @@
 # Credentials Plugin
 # Green Balls
 # Publish Over SSH
+
+
+# job_1
+
+echo "------------------------ Start Build ------------------------"
+cat <<EOF > index.html
+<html>
+<body bgcolor=black>
+<center>
+<h2> <font color=green>Hello Jenkins </font> </h2>
+<font color=blue>From Jenkins with blue volor </font>
+</center>
+</body>
+</html>
+EOF
+echo "------------------------ Build Finished ---------------------"
+
+
+
+echo "---------------------- Start Test -------------------------"
+result=`grep "Hello" index.html | wc -l`
+echo $result
+if [ "$result" = "1" ]
+then 
+     echo "Test Passed"
+else
+     echo "Test Failed"
+     exit 1
+fi     
+echo "-----------------------Test Finished -----------------------"
+
+
+
+echo "--------------------Deployment started----------------"
+ls -la
+echo "--------------------Deployment finished----------------"
+
+
